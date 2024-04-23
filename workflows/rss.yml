@@ -15,6 +15,5 @@ on:
               "type":"url",
               "content":"${{ on.rss.outputs.link }}", 
               "title":"${{ on.rss.outputs.title }}",
-              "description":"${{ on.rss.outputs.contentSnippet }}",
               "folder":"80 LEVEL"
             }
