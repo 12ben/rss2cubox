@@ -1,6 +1,6 @@
 on:
   rss:
-    url: https://80.lv/feed/
+    url: https://www.theverge.com/rss/index.xml
   request:
     name: Make a HTTP Request
     runs-on: ubuntu-latest
@@ -8,12 +8,12 @@ on:
       - name: Make a HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: https://cubox.pro/c/api/save/a4b6zbsk445
+          url: ${{ secrets.CUBOX_API }}
           method: POST
           body: |
             {
               "type":"url",
               "content":"${{ on.rss.outputs.link }}", 
               "title":"${{ on.rss.outputs.title }}",
-              "folder":"80 LEVEL"
+              "folder":"The Verge"
             }
