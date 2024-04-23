@@ -1,0 +1,34 @@
+on:
+  rss1: https://80.lv/feed/
+  rss2: https://www.theverge.com/rss/index.xml
+
+jobs:
+  cubox-post:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Post to Cubox for rss1
+      if: ${{ github.event_name == 'rss1' }}
+      uses: actionsflow/axios@v1
+      with:
+        url: ${{ secrets.CUBOX_API }}
+        method: POST
+        data: >
+          {
+            "type": "url",
+            "content": "${{ on.rss1.outputs.link }}",
+            "title": "${{ on.rss1.outputs.title }}",
+            "folder": "80 Level"
+          }
+    - name: Post to Cubox for rss2
+      if: ${{ github.event_name == 'rss2' }}
+      uses: actionsflow/axios@v1
+      with:
+        url: ${{ secrets.CUBOX_API }}
+        method: POST
+        data: >
+          {
+            "type": "url",
+            "content": "${{ on.rss2.outputs.link }}",
+            "title": "${{ on.rss2.outputs.title }}",
+            "folder": "The Verge"
+          }
