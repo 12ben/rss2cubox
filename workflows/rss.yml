@@ -1,8 +1,6 @@
 on:
   rss:
-    url:
-      - https://80.lv/feed/
-      - https://www.theverge.com/rss/index.xml
+    url: https://80.lv/feed/
 jobs:
   request:
     name: Make a HTTP Request
@@ -11,12 +9,12 @@ jobs:
       - name: Make a HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: https://cubox.pro/c/api/save/a4b6zbsk445
+          url: ${{ secrets.CUBOX_API }}
           method: POST
           body: |
             {
               "type":"url",
               "content":"${{ on.rss.outputs.link }}", 
               "title": "${{ on.rss.outputs.title }}",
-              "folder":"每日"
+              "folder":"80 Level"
             }
