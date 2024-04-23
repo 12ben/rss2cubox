@@ -5,11 +5,11 @@ on:
     url: https://www.theverge.com/rss/index.xml
 jobs:
   request01:
-    name: Make a HTTP Request
+    name: Request01
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'rss01' }}
     steps:
-      - name: Make a HTTP Request
+      - name: Request01
         uses: actionsflow/axios@v1
         with:
           url: ${{ secrets.CUBOX_API }}
@@ -23,11 +23,11 @@ jobs:
               "folder":"80 Level"
             }
   request02:
-    name: Make a HTTP Request
+    name: Request02
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'rss02' }}
     steps:
-      - name: Make a HTTP Request
+      - name: Request02
         uses: actionsflow/axios@v1
         with:
           url: ${{ secrets.CUBOX_API }}
