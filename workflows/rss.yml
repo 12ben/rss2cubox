@@ -1,17 +1,31 @@
 on:
   rss:
-    url: https://hnrss.org/newest?points=300&count=3
+    url:
+      - https://80.lv/feed/
+      - https://www.theverge.com/rss/index.xml
+      - https://hk.news.yahoo.com/tech/rss.xml
+      - https://rsshub.app/telegram/channel/jike_collection
+      - https://sspai.com/feed
+      - https://feed.iplaysoft.com/
+      - https://www.gcores.com/rss
+      - https://feedx.pw/rss/zhihudaily.xml
+      - https://rss.lilydjwg.me/zhihuzhuanlan/c_1085975047386050560
+      - https://rss.huxiu.com/
 jobs:
-  print:
-    name: Print
+  request:
+    name: Make a HTTP Request
     runs-on: ubuntu-latest
     steps:
-      - name: Print Outputs
-        env:
-          title: ${{on.rss.outputs.title}}
-          contentSnippet: ${{on.rss.outputs.contentSnippet}}
-          link: ${{on.rss.outputs.link}}
-        run: |
-          echo title: $title
-          echo contentSnippet: $contentSnippet
-          echo link: $link
+      - name: Make a HTTP Request
+        uses: actionsflow/axios@v1
+        with:
+          url: https://cubox.pro/c/api/save/a4b0iKolus6
+          method: POST
+          body: |
+            {
+              "type":"url",
+              "content":"${{on.rss.outputs.link}}", 
+              "title": "${{on.rss.outputs.title}}",
+              "description":"${{on.rss.outputs.contentSnippet}}",
+              "folder":"每日"
+            }
