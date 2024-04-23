@@ -12,7 +12,7 @@ jobs:
       with:
         url: ${{ secrets.CUBOX_API }}
         method: POST
-        data: >
+        body: |
           {
             "type": "url",
             "content": "${{ on.rss1.outputs.link }}",
@@ -25,7 +25,7 @@ jobs:
       with:
         url: ${{ secrets.CUBOX_API }}
         method: POST
-        data: >
+        body: |
           {
             "type": "url",
             "content": "${{ on.rss2.outputs.link }}",
