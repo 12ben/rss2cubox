@@ -1,7 +1,7 @@
 on:
   rss1:
     url
-      - https://80.lv/feed/
+      - https://80.lv/feed
   rss2:
     url
       - https://www.theverge.com/rss/index.xml
