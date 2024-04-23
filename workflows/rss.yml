@@ -1,6 +1,6 @@
 on:
   rss:
-    url: https://80.lv/feed/
+    url: https://www.theverge.com/rss/index.xml
 jobs:
   request:
     name: Make a HTTP Request
@@ -16,5 +16,5 @@ jobs:
               "type":"url",
               "content":"${{ on.rss.outputs.link }}", 
               "title": "${{ on.rss.outputs.title }}",
-              "folder":"80 Level"
+              "folder":"The Verge"
             }
