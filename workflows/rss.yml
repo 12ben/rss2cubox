@@ -1,5 +1,5 @@
 on:
-  rss1: https://80.lv/feed/
+  rss1: https://hk.news.yahoo.com/tech/rss.xml
   rss2: https://www.theverge.com/rss/index.xml
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
             "type": "url",
             "content": "${{ on.rss1.outputs.link }}",
             "title": "${{ on.rss1.outputs.title }}",
-            "folder": "80 Level"
+            "folder": "Yahoo 科技"
           }
     - name: Post to Cubox for rss2
       if: ${{ github.event_name == 'rss2' }}
