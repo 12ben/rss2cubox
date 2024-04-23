@@ -8,7 +8,7 @@ on:
       - name: Make a HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: ${{ secrets.CUBOX_API }}
+          url: https://cubox.pro/c/api/save/a4b6zbsk445
           method: POST
           body: |
             {
