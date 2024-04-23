@@ -8,7 +8,7 @@ on:
       - https://sspai.com/feed
       - https://feed.iplaysoft.com/
       - https://www.gcores.com/rss
-      - https://feedx.pw/rss/zhihudaily.xml
+      - https://rsshub.mt.ci/zhihu/daily/
       - https://rss.lilydjwg.me/zhihuzhuanlan/c_1085975047386050560
       - https://rss.huxiu.com/
 jobs:
