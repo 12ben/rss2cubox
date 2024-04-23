@@ -3,6 +3,23 @@ on:
     url: https://80.lv/feed/
   rss2:
     url: https://www.theverge.com/rss/index.xml
+  rss3:
+    url: https://hk.news.yahoo.com/tech/rss.xml
+  rss4:
+    url: https://rsshub.app/telegram/channel/jike_collection
+  rss5:
+    url: https://sspai.com/feed
+  rss6:
+    url: https://feed.iplaysoft.com/
+  rss7:
+    url: https://www.gcores.com/rss
+  rss8:
+    url: https://rsshub.mt.ci/zhihu/daily/
+  rss9:
+    url: https://rss.lilydjwg.me/zhihuzhuanlan/c_1085975047386050560
+  rss10:
+    url: https://rss.huxiu.com/
+
 
 jobs:
   cubox-post:
@@ -14,7 +31,7 @@ jobs:
       with:
         url: ${{ secrets.CUBOX_API }}
         method: POST
-        data: >
+        body: |
           {
             "type": "url",
             "content": "${{ on.rss1.outputs.link }}",
@@ -27,10 +44,115 @@ jobs:
       with:
         url: ${{ secrets.CUBOX_API }}
         method: POST
-        data: >
+        body: |
           {
             "type": "url",
             "content": "${{ on.rss2.outputs.link }}",
             "title": "${{ on.rss2.outputs.title }}",
             "folder": "The Verge"
           }
+    - name: Post to Cubox for rss3
+      if: ${{ github.event_name == 'rss3' }}
+      uses: actionsflow/axios@v1
+      with:
+        url: ${{ secrets.CUBOX_API }}
+        method: POST
+        body: |
+          {
+            "type": "url",
+            "content": "${{ on.rss3.outputs.link }}",
+            "title": "${{ on.rss3.outputs.title }}",
+            "folder": "Yahoo 科技"
+          }
+    - name: Post to Cubox for rss4
+      if: ${{ github.event_name == 'rss4' }}
+      uses: actionsflow/axios@v1
+      with:
+        url: ${{ secrets.CUBOX_API }}
+        method: POST
+        body: |
+          {
+            "type": "url",
+            "content": "${{ on.rss4.outputs.link }}",
+            "title": "${{ on.rss4.outputs.title }}",
+            "folder": "即刻精选"
+          }
+    - name: Post to Cubox for rss5
+      if: ${{ github.event_name == 'rss5' }}
+      uses: actionsflow/axios@v1
+      with:
+        url: ${{ secrets.CUBOX_API }}
+        method: POST
+        body: |
+          {
+            "type": "url",
+            "content": "${{ on.rss5.outputs.link }}",
+            "title": "${{ on.rss5.outputs.title }}",
+            "folder": "少数派"
+          }
+    - name: Post to Cubox for rss6
+      if: ${{ github.event_name == 'rss6' }}
+      uses: actionsflow/axios@v1
+      with:
+        url: ${{ secrets.CUBOX_API }}
+        method: POST
+        body: |
+          {
+            "type": "url",
+            "content": "${{ on.rss6.outputs.link }}",
+            "title": "${{ on.rss6.outputs.title }}",
+            "folder": "异次元软件世界"
+          }
+    - name: Post to Cubox for rss7
+      if: ${{ github.event_name == 'rss7' }}
+      uses: actionsflow/axios@v1
+      with:
+        url: ${{ secrets.CUBOX_API }}
+        method: POST
+        body: |
+          {
+            "type": "url",
+            "content": "${{ on.rss7.outputs.link }}",
+            "title": "${{ on.rss7.outputs.title }}",
+            "folder": "机核"
+          }
+    - name: Post to Cubox for rss8
+      if: ${{ github.event_name == 'rss8' }}
+      uses: actionsflow/axios@v1
+      with:
+        url: ${{ secrets.CUBOX_API }}
+        method: POST
+        body: |
+          {
+            "type": "url",
+            "content": "${{ on.rss8.outputs.link }}",
+            "title": "${{ on.rss8.outputs.title }}",
+            "folder": "知乎日报"
+          }
+    - name: Post to Cubox for rss9
+      if: ${{ github.event_name == 'rss9' }}
+      uses: actionsflow/axios@v1
+      with:
+        url: ${{ secrets.CUBOX_API }}
+        method: POST
+        body: |
+          {
+            "type": "url",
+            "content": "${{ on.rss9.outputs.link }}",
+            "title": "${{ on.rss9.outputs.title }}",
+            "folder": "知乎日报"
+          }
+    - name: Post to Cubox for rss10
+      if: ${{ github.event_name == 'rss10' }}
+      uses: actionsflow/axios@v1
+      with:
+        url: ${{ secrets.CUBOX_API }}
+        method: POST
+        body: |
+          {
+            "type": "url",
+            "content": "${{ on.rss10.outputs.link }}",
+            "title": "${{ on.rss10.outputs.title }}",
+            "folder": "虎嗅网"
+          }
+
