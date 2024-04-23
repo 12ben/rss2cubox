@@ -1,0 +1,22 @@
+on:
+  rss:
+    url: https://rsshub.mt.ci/zhihu/daily/
+
+jobs:
+  request:
+    name: Make a HTTP Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make a HTTP Request
+        uses: actionsflow/axios@v1
+        with:
+          url: https://cubox.pro/c/api/save/a4b0iKolus6
+          method: POST
+          body: |
+            {
+              "type":"url",
+              "content":"${{on.rss.outputs.link}}", 
+              "title": "${{on.rss.outputs.title}}",
+              "description":"${{on.rss.outputs.contentSnippet}}",
+              "folder":"知乎精选"
+            }
