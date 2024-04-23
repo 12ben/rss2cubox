@@ -1,12 +1,8 @@
 on:
   rss1:
-    url
-      - https://80.lv/feed
+    url: https://80.lv/feed/
   rss2:
-    url
-      - https://www.theverge.com/rss/index.xml
-  config:
-      limit: 150
+    url: https://www.theverge.com/rss/index.xml
 
 jobs:
   cubox-post:
