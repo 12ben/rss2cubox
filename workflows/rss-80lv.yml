@@ -8,13 +8,13 @@ on:
       - name: Make a HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: ${{secrets.CUBOX_API}}
+          url: ${{ secrets.CUBOX_API }}
           method: POST
           body: |
             {
               "type":"url",
-              "content":"${{on.rss.outputs.link}}", 
-              "title": "${{on.rss.outputs.title}}",
-              "description":"${{on.rss.outputs.contentSnippet}}",
+              "content":"${{ on.rss.outputs.link }}", 
+              "title": "${{ on.rss.outputs.title }}",
+              "description":"${{ on.rss.outputs.contentSnippet }}",
               "folder":"80 LEVEL"
             }
